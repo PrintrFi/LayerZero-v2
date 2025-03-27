@@ -1,8 +1,5 @@
 [workspace]
-members = [
-    "programs/*",
-    "libs/*",
-]
+members = ["programs/*", "libs/*"]
 resolver = "2"
 
 [profile.release]
@@ -21,3 +18,7 @@ inherits = "release"
 [profile.fast.build-override]
 opt-level = 0
 codegen-units = 20
+
+
+[workspace.dependencies]
+anchor-lang = { version = "=0.31.0", features = ["event-cpi"] }
