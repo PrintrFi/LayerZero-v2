@@ -1,6 +1,6 @@
 use crate::*;
+use anchor_lang::solana_program::clock::Slot;
 use cpi_helper::CpiContext;
-use solana_program::clock::Slot;
 
 /// MESSAGING STEP 2
 /// requires init_verify()
@@ -126,7 +126,8 @@ pub fn is_valid_receive_library(
         &receiver_library_config.timeout
     };
 
-    // requires the actual_receiver_library to be the same as the one in grace period and the grace period has not expired
+    // requires the actual_receiver_library to be the same as the one in grace period and the grace
+    // period has not expired
     if let Some(timeout) = timeout {
         if timeout.message_lib == actual_receiver_library && timeout.expiry > slot {
             return true;
@@ -172,7 +173,8 @@ mod tests {
         assert_eq!(result, false);
 
         // Test case 2: oapp has a custom config, with timeout
-        // true, actual_receiver_library is different from expected_receiver_library but within the grace period
+        // true, actual_receiver_library is different from expected_receiver_library but within the
+        // grace period
         let actual_receiver_library = msg_lib_v1;
         receiver_library_config.timeout =
             Some(ReceiveLibraryTimeout { message_lib: msg_lib_v1, expiry: 100 });
@@ -225,7 +227,8 @@ mod tests {
         assert_eq!(result, false);
 
         // Test case 4: oapp config is default, default config has timeout
-        // true, actual_receiver_library is different from expected_receiver_library but within the grace period
+        // true, actual_receiver_library is different from expected_receiver_library but within the
+        // grace period
         let actual_receiver_library = msg_lib_v1;
         default_receiver_library_config.timeout =
             Some(ReceiveLibraryTimeout { message_lib: msg_lib_v1, expiry: 100 });

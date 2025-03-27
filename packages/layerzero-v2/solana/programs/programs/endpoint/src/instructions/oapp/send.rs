@@ -95,10 +95,13 @@ impl Send<'_> {
         )
         .with_remaining_accounts(ctx.remaining_accounts.to_vec());
 
-        // separate send and send_with_lz_token interface to be implemented by message library, for the benefits of:
-        // 1. as different accounts are required, they can be validated through anchor constraints rather than manually handling remaining accounts
+        // separate send and send_with_lz_token interface to be implemented by message library, for
+        // the benefits of:
+        // 1. as different accounts are required, they can be validated through anchor constraints
+        //    rather than manually handling remaining accounts
         // 2. idl can be generated and used by sdk to assembled the required accounts
-        // subsequently, due to this design, fee payment is handled in the message library for simplicity
+        // subsequently, due to this design, fee payment is handled in the message library for
+        // simplicity
         let (fee, encoded_packet) = if params.lz_token_fee == 0 {
             let send_params = messagelib_interface::SendParams {
                 packet,

@@ -1,0 +1,15 @@
+[toolchain]
+
+[features]
+skip-lint = true
+
+[programs.localnet]
+endpoint = "76y77prsiCMvXMjuoZ5VRrhG5qYBrUMYTE5WgHqgjEn6"
+messagelib_interface = "J8tfaWEsewRGacgvAeQsXLTRTuUQz5FGyUuqDW2TpiTJ"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
