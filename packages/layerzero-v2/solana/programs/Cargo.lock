@@ -548,7 +548,6 @@ dependencies = [
  "anchor-lang",
  "cpi-helper",
  "messagelib-interface",
- "solana-helper",
  "utils",
 ]
 
@@ -1381,18 +1380,6 @@ dependencies = [
  "solana-atomic-u64",
  "solana-sanitize",
  "wasm-bindgen",
-]
-
-[[package]]
-name = "solana-helper"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "09c6deff8c48efb84b5828db064ad9873ef3445f129f888b4b6a664bd5220e35"
-dependencies = [
- "bs58",
- "proc-macro2",
- "quote",
- "syn 1.0.109",
 ]
 
 [[package]]

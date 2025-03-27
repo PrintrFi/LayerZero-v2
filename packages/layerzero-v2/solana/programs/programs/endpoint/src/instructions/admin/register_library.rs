@@ -1,5 +1,11 @@
 use crate::*;
 
+fn find_seed(params: &RegisterLibraryParams) -> [u8; 32] {
+    Pubkey::find_program_address(&[MESSAGE_LIB_SEED], &params.lib_program)
+        .0
+        .to_bytes()
+}
+
 #[event_cpi]
 #[derive(Accounts)]
 #[instruction(params: RegisterLibraryParams)]
@@ -14,10 +20,7 @@ pub struct RegisterLibrary<'info> {
         space = 8 + MessageLibInfo::INIT_SPACE,
         seeds = [
             MESSAGE_LIB_SEED,
-            &Pubkey::find_program_address(
-                &[MESSAGE_LIB_SEED],
-                &params.lib_program,
-            ).0.to_bytes()
+            &find_seed(&params)
         ],
         bump
     )]

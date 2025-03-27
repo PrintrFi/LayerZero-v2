@@ -21,7 +21,6 @@ no-log-ix-name = []
 
 [dependencies]
 anchor-lang.workspace = true
-solana-helper = "0.1.0"
 cpi-helper = { path = "../../libs/cpi-helper" }
 messagelib-interface = { path = "../messagelib-interface", features = ["cpi"] }
 utils = { path = "../../libs/utils" }

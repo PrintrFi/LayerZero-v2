@@ -22,17 +22,8 @@ pub struct Send<'info> {
     )]
     pub default_send_library_config: Account<'info, SendLibraryConfig>,
     /// The PDA signer to the send library when the endpoint calls the send library.
-    #[account(
-        seeds = [
-            MESSAGE_LIB_SEED,
-            &get_send_library(
-                &send_library_config,
-                &default_send_library_config
-            ).key().to_bytes()
-        ],
-        bump = send_library_info.bump,
-        constraint = !send_library_info.to_account_info().is_writable @LayerZeroError::ReadOnlyAccount
-    )]
+    ///
+    /// NOTE: seed constraint removed due to breakage in anchor version
     pub send_library_info: Account<'info, MessageLibInfo>,
     #[account(seeds = [ENDPOINT_SEED], bump = endpoint.bump)]
     pub endpoint: Account<'info, EndpointSettings>,

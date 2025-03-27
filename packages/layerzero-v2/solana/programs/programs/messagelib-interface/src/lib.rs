@@ -1,3 +1,5 @@
+#![allow(unexpected_cfgs)] // <https://solana.stackexchange.com/a/19845/36572>
+
 use anchor_lang::prelude::*;
 
 declare_id!("J8tfaWEsewRGacgvAeQsXLTRTuUQz5FGyUuqDW2TpiTJ");
