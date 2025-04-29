@@ -9,7 +9,7 @@ edition = "2021"
 proc-macro = true
 
 [dependencies]
-syn = "1.0.77"
-quote = "1.0.26"
+syn = "2.0.101"
+quote = "1.0.40"
 bs58 = "0.5.1"
-proc-macro2 = "1.0.54"
+proc-macro2 = "1.0.95"

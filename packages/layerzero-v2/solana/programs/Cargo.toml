@@ -21,4 +21,4 @@ codegen-units = 20
 
 
 [workspace.dependencies]
-anchor-lang = { version = "=0.31.0", features = ["event-cpi"] }
+anchor-lang = { version = "=0.31.1", features = ["event-cpi"] }
